@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import './login.css';
 import Footer from './elements/Footer'
 
