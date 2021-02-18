@@ -180,7 +180,6 @@ function Main(){
 
 							</Grid>
 						</Container>
-						<Footer />
 			</React.Fragment>
 		);
 	}
