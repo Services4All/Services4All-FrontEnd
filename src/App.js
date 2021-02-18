@@ -1,5 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
+import login from './components/login'
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -18,6 +22,12 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <BrowserRouter>
+      <Switch>
+        <Route exact path="/Login" component={login} />
+      </Switch>
+  </BrowserRouter>
     </div>
   );
 }
