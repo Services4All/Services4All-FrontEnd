@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
 import login from './components/login';
 import about from './components/about';
+import comprador from './components/comprador';
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
 			<Route exact path="/" component={Main} />
       <Route exact path="/Login" component={login} />
       <Route exact path="/About" component={about} />
+      <Route exact path="/Comprador" component={comprador} />
 		  </Switch>
 		</BaseLayout>
 	  </BrowserRouter>

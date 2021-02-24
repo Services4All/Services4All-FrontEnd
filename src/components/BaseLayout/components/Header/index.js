@@ -10,6 +10,7 @@ const Header = () => (
     <div className="links-header">
       <p><NavLink activeClassName="selected" className="nav-link-header" to="/">Servicios</NavLink></p>
       <p><NavLink activeClassName="selected" className="nav-link-header" to="/About">Acerca de nosotros</NavLink></p>
+      <p><NavLink activeClassName="selected" className="nav-link-header" to="/Comprador">Comprador</NavLink></p>
     </div>
   </div>
 )
