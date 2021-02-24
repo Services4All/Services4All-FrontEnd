@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Main from "./components/main"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
+import login from './components/login';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
 		<BaseLayout>
 		  <Switch>
 			<Route exact path="/" component={Main} />
+      <Route exact path="/Login" component={login} />
 		  </Switch>
 		</BaseLayout>
 	  </BrowserRouter>
