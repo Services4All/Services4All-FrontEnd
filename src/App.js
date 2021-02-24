@@ -5,6 +5,7 @@ import BaseLayout from './components/BaseLayout';
 import login from './components/login';
 import about from './components/about';
 import comprador from './components/comprador';
+import vendedor from './components/vendedor';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/Login" component={login} />
       <Route exact path="/About" component={about} />
       <Route exact path="/Comprador" component={comprador} />
+      <Route exact path="/Vendedor" component={vendedor} />
 		  </Switch>
 		</BaseLayout>
 	  </BrowserRouter>
