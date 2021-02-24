@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Main from "./components/Main"
+import Main from "./components/main"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
 
