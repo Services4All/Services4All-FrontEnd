@@ -8,8 +8,10 @@ import Container from '@material-ui/core/Container';
 import NavBar from './navBar/NavBar';
 import './login.css';
 import Footer from './elements/Footer'
-
-
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,6 +51,45 @@ export default function SignUp() {
                       LogIn
                   </Typography>
               </div>
+              <form className={classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              LogIn
+            </Button>
+           
+            
+          </form>
           </Container>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           <Footer/>
