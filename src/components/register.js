@@ -37,7 +37,6 @@ export default function SignUp() {
             <NavBar />
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
-
                 <div className={classes.paper}>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
@@ -45,9 +44,7 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    
                 </div>
-                
             </Container>
         </div>
     );
