@@ -1,5 +1,7 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Avatar from '@material-ui/core/Avatar';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -37,6 +39,11 @@ export default function SignUp() {
           <NavBar />
           <Container component="main" maxWidth="xs">
               <CssBaseline />
+              <center>
+              <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+              </Avatar>
+              </center>
               <div className={classes.paper}>
                   <Typography component="h1" variant="h5">
                       LogIn
