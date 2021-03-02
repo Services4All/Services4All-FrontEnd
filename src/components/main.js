@@ -10,6 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
+import Modal from "@material-ui/core/Modal";
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,7 +48,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  paper: {
+    position: "absolute",
+    width: 600,
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
+
+function getModalStyle() {
+  const top = 50;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
 
 const cards = [1, 2, 3, 4, 5, 6];
 function Main() {
@@ -68,6 +88,25 @@ function Main() {
     "https://www.flaticon.es/premium-icon/icons/svg/4011/4011252.svg",
     "https://images.vexels.com/media/users/3/143028/isolated/preview/fca3043920fa2ff5d59aa0cedb758b75-zapatos-de-ropa-by-vexels.png",
   ]);
+  const [infoCard] = useState([
+    "Explicación de carpinteria",
+    "Explicación de Plomería",
+    "Explicación de Mecánica",
+    "Explicación de Consultoría médica",
+    "Explicación de Cerrajería",
+    "Explicación de Zapatería",
+  ]);
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -100,11 +139,32 @@ function Main() {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary">
+                  <Button size="small" color="primary" onClick={handleOpen}>
                     View
                   </Button>
                 </CardActions>
               </Card>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              >
+                <div style={modalStyle} className={classes.paper}>
+                  <Container maxWidth="sm">
+                    <Grid
+                      containter
+                      direction="column"
+                      justify="center"
+                      alignItems="center"
+                      spacing={3}
+                    >
+					{console.log(infoCard[card-1])}
+                      <p>Servicio ofrecido a través de la aplicación</p>
+                    </Grid>
+                  </Container>
+                </div>
+              </Modal>
             </Grid>
           ))}
         </Grid>
