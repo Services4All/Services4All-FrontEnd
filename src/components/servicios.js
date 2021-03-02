@@ -12,6 +12,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 //import Modal from "@material-ui/core/Modal";
 //import './servicios.css';
+import Footer from "./elements/Footer";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -97,7 +98,9 @@ function Setup(){
           ))}
         </Grid>
       </Container>
+	  <Footer />
         </div>
+		
 		
 	);
 }
