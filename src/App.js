@@ -6,6 +6,7 @@ import login from './components/login';
 import about from './components/about';
 import comprador from './components/comprador';
 import vendedor from './components/vendedor';
+import servicios from './components/servicios';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/About" component={about} />
       <Route exact path="/Comprador" component={comprador} />
       <Route exact path="/Vendedor" component={vendedor} />
+	  <Route exact path="/Servicios" component={servicios} />
 		  </Switch>
 		</BaseLayout>
 	  </BrowserRouter>
