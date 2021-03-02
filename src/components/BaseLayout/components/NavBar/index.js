@@ -17,6 +17,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ChatIcon from '@material-ui/icons/Chat';
+
 
 // Internals
 import "./index.css";
@@ -60,6 +62,10 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+  },
+  photo: {
+	height: "100px",
+	width: "100px",
   },
 }));
 
@@ -116,36 +122,18 @@ function Navbar() {
       <Divider />
       <Divider />
       <Divider />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       <List alignItems="bottom">
         <div>
+		  <ListItem alignItems="center" button>
+		  
+			<img className={useStyles.photo} src="http://www.simpleimageresizer.com/_uploads/photos/27b12d86/S4A_60.png" alt="S4A"/>
+          </ListItem>
+          <ListItem alignItems="center" button>
+            <ListItemIcon>
+				<ChatIcon />
+            </ListItemIcon>
+            <ListItemText primary="Deja tu opinion" />
+          </ListItem>
           <ListItem alignItems="center" button>
             <ListItemIcon>
               <ExitToAppIcon />
