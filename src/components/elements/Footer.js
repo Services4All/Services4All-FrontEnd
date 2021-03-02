@@ -10,7 +10,7 @@ function Footer() {
           <div className="col">
             <h4>Services4All</h4>
            <ui className="list-unstyled">
-              <li>Escuela Colombiana de ingenieria Julio Garavito</li>
+              <li>Iniciativa nacida en la Escuela Colombiana de ingenieria Julio Garavito</li>
             </ui>
           </div>
           {/* Column2 */}
@@ -33,7 +33,7 @@ function Footer() {
           <div className="col"></div>
           <div className="col"></div>
           <div className="col">
-            <h4>Contac us</h4>
+            <h4>Contact us</h4>
             <ui className="list-unstyled">
               <a
           className="App-link"
@@ -66,8 +66,8 @@ function Footer() {
         <hr />
         <div className="row">
           <p className="col-sm">
-            &copy;{new Date().getFullYear()} Services4All | All rights reserved |
-            Terms Of Service | 24 hours support | Privacy
+            &copy;{new Date().getFullYear()} Services4All | Todos Los Derechos Reservados |
+            Terminos del Servicio | Soporte 24 horas | Privacidad
           </p>
         </div>
       </div>
