@@ -1,10 +1,53 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 17/02/2021, 10:34:10 PM
-    Author     : esteb
-*/
+.about{
+  background-color: rgb(255, 255, 255);
+}
+
+.about2{
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+}
+
+.about3{
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 0s linear;
+  }
+}
+
+.img {
+  margin: 1em 0;
+  padding: 1em;
+  font-size: 36px; 
+  font-weight: 20; 
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+
+.items {
+  margin: 1em 0;
+  font-size: 36px; 
+  font-weight: 20; 
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.about-title {
+  margin: 3em 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  text-align: center;
+}
 

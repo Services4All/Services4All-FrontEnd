@@ -1,0 +1,26 @@
+.content {
+  background-color: #F9F6F6;
+}
+
+.first-header {
+  background: url('https://gruposermos.com/wp-content/uploads/2018/07/pintar-casa.jpg');
+}
+
+.second-header {
+  background: url('https://refranreformas.es/wp-content/uploads/la-carpinteria-en-una-reforma.png');
+}
+
+.third-header {
+  background: url('https://img.motoryracing.com/noticias/portada/25000/25615-n.jpg');
+}
+
+.fourth-header {
+  background: url('https://preview.ibb.co/gtsZXQ/fashion6.jpg');
+}
+
+.first-header, .second-header, .third-header, .fourth-header {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+}

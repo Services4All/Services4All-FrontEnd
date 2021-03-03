@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavItem } from './NavItem';
 import './NavBar.css';
-
-
 export default class NavBar extends React.Component {
     render() {
         var menu = [{
@@ -23,7 +21,7 @@ export default class NavBar extends React.Component {
                                 return <NavItem
                                     key={currentValue.code}
                                     name={currentValue.name}
-                                    isFirstOne={index == 0 ? true : false} />;
+                                    isFirstOne={index === 0 ? true : false} />;
                             })}
                         </ul>
                     </div>
