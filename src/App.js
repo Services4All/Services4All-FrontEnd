@@ -1,8 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from "./components/main"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BaseLayout from './components/BaseLayout';
+import login from './components/login';
+import about from './components/about';
+import comprador from './components/comprador';
+import vendedor from './components/vendedor';
+import servicios from './components/servicios';
+
 
 function App() {
   return (
+	  <BrowserRouter>
+		<BaseLayout>
+		  <Switch>
+			<Route exact path="/" component={Main} />
+      <Route exact path="/Login" component={login} />
+      <Route exact path="/About" component={about} />
+      <Route exact path="/Comprador" component={comprador} />
+      <Route exact path="/Vendedor" component={vendedor} />
+	  <Route exact path="/Servicios" component={servicios} />
+		  </Switch>
+		</BaseLayout>
+	  </BrowserRouter>
+  /**
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +40,7 @@ function App() {
         </a>
       </header>
     </div>
+	*/
   );
 }
 
