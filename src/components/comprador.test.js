@@ -4,6 +4,6 @@ import Comprador from './comprador';
 
 test('renders Principal', () => {
     render(<Router><Comprador /></Router>);
-    const divElement = screen.getByText(/new code/i);
+    const divElement = screen.getByText(/other code/i);
     expect(divElement).toBeInTheDocument();
   });

@@ -22,7 +22,7 @@ export default class comprador extends React.Component {
           <Footer />
         </div>
         <div>
-          <h3>new code</h3>
+          <h3>other code</h3>
         </div>
       </div>
     );
