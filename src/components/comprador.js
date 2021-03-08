@@ -21,6 +21,9 @@ export default class comprador extends React.Component {
         <div>
           <Footer />
         </div>
+        <div>
+          <h3>new code</h3>
+        </div>
       </div>
     );
   }
