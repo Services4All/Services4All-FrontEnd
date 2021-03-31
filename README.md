@@ -13,7 +13,7 @@
 |German Ospina Quintero |Team Developer    |  Desarrollo Full stack  |
 |Nicolas Ortega Limas |Team Developer   | Desarrollo Full stack |
 |Esteban Bernal |Team Developer   | Desarrollo Full stack |
-|Andres Sotel |Team Developer   | Desarrollo Full stack |
+|Andres Sotelo |Team Developer   | Desarrollo Full stack |
 |Juan Guillermo Romero |Team Developer   | Desarrollo Full stack |
 |Ing. Dagoberto Borda Garzón |Product Manager   | Revisor del proyecto  |
 |Ing. Oscar Javier Mendez Zuluaga |Product Manager   | Revisor del proyecto  |
@@ -24,7 +24,7 @@ Services4All es una sencilla plataforma de venta de servicios en tiempo real que
 
 ## Construido con
 
-+ [Maven](https://maven.apache.org/) - Manejo de dependencias
++ [Gradle](https://gradle.org/) - Manejo de dependencias
 + [Java](https://www.java.com/es/) - Lenguaje usado para el desarrollo
 + [Spring](https://spring.io/) - Framework de desarrollo
 + [Git](https://git-scm.com/) - Control de versiones
