@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import Servicios from './components/servicios';
-import Main from "./components/main"
+import Main from "./components/main";
+import Vendedor from "./components/vendedor";
 
 test('renders Principal', () => {
   render(<App />);
@@ -58,6 +59,15 @@ it('Test Main 2', () => {
    const { container, getByText } = render(<Main />);
 
    expect(getByText(/Carpintería/i).textContent)
+
+
+})
+it('Test Vendedor 1', () => {
+
+
+   const { container, getByText } = render(<Vendedor />);
+
+   expect(getByText(/BIENVENIDO VENDEDOR/i).textContent)
 
 
 })
