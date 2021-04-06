@@ -2,11 +2,9 @@
 import React from "react";
 import Footer from "./elements/Footer";
 import NavBar from "./navBar/NavBar";
-import { NavLink } from "react-router-dom";
 import "./vendedor.css";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -22,8 +20,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import EditIcon from "@material-ui/icons/Edit";
+
 
 export default function Vendedor() {
   const [open1, setOpen1] = React.useState(false);
@@ -105,7 +102,7 @@ export default function Vendedor() {
     ),
     createData("Carpinteria Gomez", "Carpinteria", "Bogota", "Villaluz"),
     createData("Carpinteria S.I.", "Carpinteria", "Bogota", "Santa Isabel"),
-    createData("DiagnostiYA", "Mecanica", "Bogota", "Florida"),
+    createData("DiagnostiYA", "Mecanica", "Cali", "Matamoros"),
     createData("Zapateria Restrepo", "Zapateria", "Bogota", "Restrepo"),
     createData("Consulta Medica", "Consultoria médica", "Bogota", "Quirigua"),
     createData(
@@ -115,15 +112,6 @@ export default function Vendedor() {
       "Villas de Gratamira"
     ),
   ];
-
-  const useStyles = makeStyles({
-    root: {
-      width: "100%",
-    },
-    container: {
-      maxHeight: 440,
-    },
-  });
 
   return (
     <div className="vendedor">
