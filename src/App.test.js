@@ -62,13 +62,5 @@ it('Test Main 2', () => {
 
 
 })
-it('Test Vendedor 1', () => {
 
-
-   const { container, getByText } = render(<Vendedor />);
-
-   expect(getByText(/BIENVENIDO VENDEDOR/i).textContent)
-
-
-})
 
