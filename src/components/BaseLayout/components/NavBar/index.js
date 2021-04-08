@@ -126,7 +126,7 @@ function Navbar() {
         <div>
 		  <ListItem alignItems="center" button>
 		  
-			<img className={useStyles.photo} src="http://www.simpleimageresizer.com/_uploads/photos/27b12d86/S4A_60.png" alt="S4A"/>
+			<img className={useStyles.photo} src="https://i.imgur.com/QJPmuZw.png" alt="S4A"/>
           </ListItem>
           <ListItem alignItems="center" button>
             <ListItemIcon>

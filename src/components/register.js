@@ -91,7 +91,6 @@ export default function SignUp() {
                                     fullWidth
                                     name="cedula"
                                     label="cedula"
-                                    name="cedula"
                                     id="cedula"
                                 />
                             </Grid>
@@ -102,7 +101,6 @@ export default function SignUp() {
                                     fullWidth
                                     name="tipo"
                                     label="Categoria de servicio"
-                                    name="tipo"
                                     id="tipo"
                                 />
                             </Grid>
@@ -113,7 +111,6 @@ export default function SignUp() {
                                     fullWidth
                                     name="ciudad"
                                     label="Ciudad"
-                                    name="ciudad"
                                     id="ciudad"
                                 />
                             </Grid>
