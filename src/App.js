@@ -2,29 +2,34 @@ import './App.css';
 import Main from "./components/main"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
+import WhiteLayout from './components/WhiteLayout';
 import login from './components/login';
 import about from './components/about';
 import comprador from './components/comprador';
 import vendedor from './components/vendedor';
 import servicios from './components/servicios';
 import register from './components/register';
+import producto from './components/producto';
 
 
 function App() {
   return (
-	  <BrowserRouter>
-		<BaseLayout>
-		  <Switch>
-			<Route exact path="/" component={Main} />
-      <Route exact path="/Login" component={login} />
-      <Route exact path="/About" component={about} />
-      <Route exact path="/Comprador" component={comprador} />
-      <Route exact path="/Vendedor" component={vendedor} />
-	  <Route exact path="/Servicios" component={servicios} />
-	  <Route exact path="/Register" component={register} />
-		  </Switch>
-		</BaseLayout>
-	  </BrowserRouter>
+	  <div>
+		  <BrowserRouter>
+			 <Switch>
+				<BaseLayout>
+					<Route exact path="/" component={Main} />
+					<Route exact path="/Login" component={login} />
+					<Route exact path="/About" component={about} />
+					<Route exact path="/Comprador" component={comprador} />
+					<Route exact path="/Vendedor" component={vendedor} />
+					<Route exact path="/Servicios" component={servicios} />
+					<Route exact path="/Register" component={register} />
+					<Route exact path="/producto" component={producto} />
+				</BaseLayout>
+			  </Switch>
+		</BrowserRouter>
+	  </div>
   /**
     <div className="App">
       <header className="App-header">

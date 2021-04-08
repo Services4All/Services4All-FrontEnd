@@ -9,6 +9,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   view: {
@@ -30,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Setup(){
+	let history = useHistory();
 	const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 	const classes = useStyles();
 	const [namesArray] = useState([
@@ -60,6 +63,9 @@ function Setup(){
 		"https://www.colsubsidio.com/uploads/2020/06/Logofamisanar_acf_cropped-1.jpg",
 		"https://pbs.twimg.com/media/DXKTzstW4AUVZyK.jpg",
 	]);	
+	function handleClick() {
+		history.push("/producto", {servicio: "data"});
+	}
 	return(
 		<div>
           <h1> Consulta aquí nuestra oferta de servicios:</h1>
@@ -69,7 +75,7 @@ function Setup(){
             <Grid item key={card} xs={12} sm={6} md={4}>
               <Card className={classes.view}>
                 <CardMedia
-                  className={classes.sampleMedia}
+                  className={classes.sampleMedia}	
                   image={imgArray[card - 1]}
                   title="Title"
                 />
@@ -79,7 +85,7 @@ function Setup(){
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={handleOpen}>
+                  <Button size="small" color="primary" onClick={handleClick}>
                     View
                   </Button>
                 </CardActions>
