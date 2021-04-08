@@ -1,11 +1,9 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
@@ -67,6 +65,7 @@ class producto extends React.Component {
                 name="simple-controlled"
                 value={this.state.calificacion}
                 onChange={(event, newValue) => {
+				  /* istanbul ignore next */
                   this.setState({ calificacion: newValue });
                 }}
               ></Rating>
