@@ -18,6 +18,7 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ChatIcon from '@material-ui/icons/Chat';
+import { useHistory } from "react-router-dom";
 
 
 // Internals
@@ -69,7 +70,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function Navbar() {
+	let history = useHistory();
+	  /* istanbul ignore next */
+  function handleClickRedirect () {
+    history.push("/producto");
+  };
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -128,17 +136,17 @@ function Navbar() {
 		  
 			<img className={useStyles.photo} src="https://i.imgur.com/QJPmuZw.png" alt="S4A"/>
           </ListItem>
-          <ListItem alignItems="center" button>
+          <ListItem alignItems="center" button onClick={handleClickRedirect}>
             <ListItemIcon>
 				<ChatIcon />
             </ListItemIcon>
             <ListItemText primary="Deja tu opinion" />
           </ListItem>
-          <ListItem alignItems="center" button>
+          <ListItem alignItems="center" button >
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
-            <ListItemText primary="Logout" />
+            <ListItemText primary="Registrate" />
           </ListItem>
         </div>
       </List>
@@ -197,7 +205,7 @@ function Navbar() {
           </ul>
         </div>
         <div className="shopping-cart">
-          <NavLink to="/cart">
+          <NavLink to="/comprador">
             <Icon medium>shopping_cart</Icon>
           </NavLink>
         </div>
