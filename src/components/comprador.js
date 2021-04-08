@@ -19,8 +19,10 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { useHistory } from "react-router-dom";
 
 export default function Comprador() {
+  let history = useHistory();
   const [openHandle1, setopenHandle1] = React.useState(false);
   const [openHandle2, setopenHandle2] = React.useState(false);
   const [openHandle3, setopenHandle3] = React.useState(false);
@@ -51,6 +53,11 @@ export default function Comprador() {
   /* istanbul ignore next */
   const handleClose3 = () => {
     setopenHandle3(false);
+  };
+  
+  /* istanbul ignore next */
+  function handleClickRedirect () {
+    history.push("/producto");
   };
   
   const [page] = React.useState(0);
@@ -188,7 +195,7 @@ export default function Comprador() {
             <Button onClick={handleClose2} color="primary">
               Cancelar
             </Button>
-            <Button onClick={handleClickopenHandle3} color="primary">
+            <Button onClick={handleClickRedirect} color="primary">
               Buscar
             </Button>
           </DialogActions>
