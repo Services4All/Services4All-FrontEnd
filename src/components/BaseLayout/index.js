@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import './index.css';
 
 const classNames = [
-  "first-header",
+  "first-header",	
   "second-header",
   "third-header"
 ];
