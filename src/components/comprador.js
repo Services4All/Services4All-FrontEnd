@@ -13,13 +13,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
-import Paper from "@material-ui/core/Paper";
 import MaterialTable from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 
 export default function Comprador() {
@@ -55,17 +53,9 @@ export default function Comprador() {
     setopenHandle3(false);
   };
   
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-/* istanbul ignore next */
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-/* istanbul ignore next */
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
+  const [page] = React.useState(0);
+  const [rowsPerPage] = React.useState(10);
+
 
   function createData(name, categoria, ciudad, barrio) {
     return { name, categoria, ciudad, barrio };
