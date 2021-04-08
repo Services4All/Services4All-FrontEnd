@@ -2,7 +2,6 @@ import './App.css';
 import Main from "./components/main"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
-import WhiteLayout from './components/WhiteLayout';
 import login from './components/login';
 import about from './components/about';
 import comprador from './components/comprador';
