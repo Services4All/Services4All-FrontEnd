@@ -71,7 +71,7 @@ export default function Comprador() {
     return { name, categoria, ciudad, barrio };
   }
 /* istanbul ignore next */
-  const columns = [
+  const attributes = [
     { id: "name", label: "Nombre Servicio", minWidth: 170 },
     { id: "categoria", label: "Categoria", minWidth: 100 },
     {
@@ -232,12 +232,11 @@ export default function Comprador() {
             </Button>
           </DialogActions>
         </Dialog>
-		<Paper>
         <TableContainer>
           <MaterialTable stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                {columns.map((column) => (
+                {attributes.map((column) => (
                   <TableCell
                     key={column.id}
                     align={column.align}
@@ -259,7 +258,7 @@ export default function Comprador() {
                       tabIndex={-1}
                       key={row.code}
                     >
-                      {columns.map((column) => {
+                      {attributes.map((column) => {
                         const value = row[column.id];
 						/* istanbul ignore next */
                         return (
@@ -276,16 +275,6 @@ export default function Comprador() {
             </TableBody>
           </MaterialTable>
         </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
-      </Paper>
       </div>
       <div>
         <Footer />
