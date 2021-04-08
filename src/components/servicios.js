@@ -64,6 +64,7 @@ function Setup(){
 		"https://pbs.twimg.com/media/DXKTzstW4AUVZyK.jpg",
 	]);	
 	function handleClick() {
+		/* istanbul ignore next */
 		history.push("/producto", {servicio: "data"});
 	}
 	return(
