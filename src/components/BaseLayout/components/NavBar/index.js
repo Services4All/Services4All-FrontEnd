@@ -19,7 +19,12 @@ import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ChatIcon from '@material-ui/icons/Chat';
 import { useHistory } from "react-router-dom";
-
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
 
 // Internals
 import "./index.css";
@@ -73,10 +78,24 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Navbar() {
+	const [openHandleLog1, setopenHandleLog1] = React.useState(false);
+	
+	const handleClickopenHandleLog1 = () => {
+    /* istanbul ignore next */
+    setopenHandleLog1(true);
+  };
+
+  const handleCloseLog1 = () => {
+    /* istanbul ignore next */
+    setopenHandleLog1(false);
+  };
 	let history = useHistory();
 	  /* istanbul ignore next */
   function handleClickRedirect () {
     history.push("/producto");
+  };
+ function handleClickRedirect2 () {
+    history.push("/");
   };
   const [state, setState] = useState({
     top: false,
@@ -132,7 +151,7 @@ function Navbar() {
       <Divider />
       <List alignItems="bottom">
         <div>
-		  <ListItem alignItems="center" button>
+		  <ListItem alignItems="center" >
 		  
 			<img className={useStyles.photo} src="https://i.imgur.com/QJPmuZw.png" alt="S4A"/>
           </ListItem>
@@ -142,13 +161,35 @@ function Navbar() {
             </ListItemIcon>
             <ListItemText primary="Deja tu opinion" />
           </ListItem>
-          <ListItem alignItems="center" button >
+          <ListItem alignItems="center" button onClick={handleClickopenHandleLog1} >
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
-            <ListItemText primary="Registrate" />
+            <ListItemText primary="Log Out" />
           </ListItem>
+		  <Dialog
+          open={openHandleLog1}
+          onClose={handleCloseLog1}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Salir</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Estas seguro de que deseas salir?
+            </DialogContentText>
+
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseLog1} color="primary">
+              Cancelar
+            </Button>
+            <Button onClick={handleClickRedirect2} color="primary">
+              Salir
+            </Button>
+          </DialogActions>
+        </Dialog>
         </div>
+		
       </List>
     </div>
   );
@@ -197,7 +238,7 @@ function Navbar() {
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
-                to="/signup"
+                to="/Register"
               >
                 Sign up
               </NavLink>
