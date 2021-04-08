@@ -15,7 +15,7 @@ test('renders new component 2', () => {
   });
   test('renders new component 3', () => {
     render(<Router><Comprador /></Router>);
-    const divElement = screen.getByText(/Rows per page:/i);
+    const divElement = screen.getByText(/Colina/i);
     expect(divElement).toBeInTheDocument();
   });
   
