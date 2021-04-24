@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import NavBar from './navBar/NavBar';
 import Footer from './elements/Footer';
+import Alert from '@material-ui/lab/Alert';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,60 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
     const classes = useStyles();
+	const [firstName, setFirstName] = React.useState(null);
+	const [lastName, setLastName] = React.useState(null);
+	const [emailAddress, setEmailAddress] = React.useState(null);
+	const [cedula, setCedula] = React.useState(null);
+	const [categoriaServicio, setCategoriaServicio] = React.useState(null);
+	const [ciudad, setCiudad] = React.useState(null);
+	const [registroExitoso, setRegistroExitoso] = React.useState(false);
+	const [password, setPassword] = React.useState(null);
+	
+	function registrarUsuario(){
+		console.log(firstName);
+		console.log(lastName);
+		console.log(emailAddress);
+		console.log(cedula);
+		console.log(categoriaServicio);
+		console.log(ciudad);
+		console.log(password);
+		//Aquí se debe llamar al API para hacer la creación del nuevo usuario
+		if(firstName!=null && lastName!=null && emailAddress!=null && cedula!=null && categoriaServicio!=null && ciudad!=null && registroExitoso!=null && password!=null){
+			setRegistroExitoso(true);
+			setTimeout(function() {
+				window.location.replace('/');
+			}, 1000);
+		}
+	}
+	
+	function handleChangeFirstName(event){
+		setFirstName(event.target.value);
+		console.log(firstName);
+	}
+	
+	function handleChangeLastName(event){
+		setLastName(event.target.value);
+	}
+	
+	function handleChangeEmailAddress(event){
+		setEmailAddress(event.target.value);
+	}
+	
+	function handleChangeCedula(event){
+		setCedula(event.target.value);
+	}
+	
+	function handleChangeCategoriaServicio(event){
+		setCategoriaServicio(event.target.value);
+	}
+	
+	function handleChangeCiudad(event){
+		setCiudad(event.target.value);
+	}
+	
+	function handleChangePassword(event){
+		setPassword(event.target.value);
+	}
 
     return (
         <div >
@@ -48,7 +103,6 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <form className={classes.form} noValidate>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -60,6 +114,7 @@ export default function SignUp() {
                                     id="firstName"
                                     label="First Name"
                                     autoFocus
+									onChange={handleChangeFirstName}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -71,6 +126,7 @@ export default function SignUp() {
                                     label="Last Name"
                                     name="lastName"
                                     autoComplete="lname"
+									onChange={handleChangeLastName}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -82,6 +138,7 @@ export default function SignUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+									onChange={handleChangeEmailAddress}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -92,6 +149,7 @@ export default function SignUp() {
                                     name="cedula"
                                     label="cedula"
                                     id="cedula"
+									onChange={handleChangeCedula}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -102,6 +160,7 @@ export default function SignUp() {
                                     name="tipo"
                                     label="Categoria de servicio"
                                     id="tipo"
+									onChange={handleChangeCategoriaServicio}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -112,6 +171,7 @@ export default function SignUp() {
                                     name="ciudad"
                                     label="Ciudad"
                                     id="ciudad"
+									onChange={handleChangeCiudad}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -124,6 +184,7 @@ export default function SignUp() {
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
+									onChange={handleChangePassword}
                                 />
                             </Grid>
 
@@ -134,18 +195,31 @@ export default function SignUp() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+							onClick = {registrarUsuario}
                         >
                             Sign Up
           </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/login" variant="body2">
                                     Already have an account? Sign in
               </Link>
                             </Grid>
                         </Grid>
-                    </form>
                 </div>
+				<br></br>
+				<Grid
+					  container
+					  direction="column"
+					  justify="center"
+					  alignItems="center"
+					>
+					{registroExitoso && 
+						<Alert severity="success">
+							Ha sido registrado exitosamente
+						</Alert>
+					}
+				</Grid>
             </Container>
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <Footer />

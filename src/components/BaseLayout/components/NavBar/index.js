@@ -118,7 +118,7 @@ function Navbar() {
                   className={useStyles.inline}
                   color="textPrimary"
                 >
-                  Correo electronico
+				{localStorage.getItem('email')}
                 </Typography>
               </React.Fragment>
             }
@@ -197,7 +197,7 @@ function Navbar() {
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
-                to="/signup"
+                to="/Register"
               >
                 Sign up
               </NavLink>

@@ -87,7 +87,7 @@ function Setup(){
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" onClick={handleClick}>
-                    View
+                    Opina sobre el servicio
                   </Button>
                 </CardActions>
               </Card>
