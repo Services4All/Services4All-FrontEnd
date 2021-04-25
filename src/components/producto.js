@@ -1,23 +1,20 @@
 import React from "react";
+import "./producto.css";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import IconButton from "@material-ui/core/IconButton";
-import AddIcon from "@material-ui/icons/Add";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Divider from '@material-ui/core/Divider';
+import SimpleDialog from './SimpleDialog'
 
+//En enviar comentarios se debe hacer la petición al Back-End para añadir el comentario
 
-class producto extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { calificacion: 0 };
-  }
+function Producto () { 
+	const [value, setValue] = React.useState(2);
 
-  render() {
     return (
       <div>
         <br></br>
@@ -25,15 +22,25 @@ class producto extends React.Component {
         <br></br>
         <br></br>
         <Container maxWidth="sm">
+		<Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="stretch"
+          >
+		<Typography variant="h2" component="h2" gutterBottom>
+        Dejanos tu opinión acerca de los servicios
+      </Typography>
+	  </Grid>
+	  <Divider />
+	  <br />
           <Grid
             container
             direction="column"
             justify="center"
             alignItems="center"
           >
-            <Typography variant="h2" gutterBottom>
-              Titulo del servicio
-            </Typography>
+            <SimpleDialog />
           </Grid>
 		  <Divider />
 		  <br></br>
@@ -45,9 +52,6 @@ class producto extends React.Component {
               multiline
               variant="outlined"
             />
-            <IconButton aria-label="delete" color="primary">
-              <AddIcon />
-            </IconButton>
           </Grid>
 		  <br></br>
 		  <Divider />
@@ -58,18 +62,15 @@ class producto extends React.Component {
             justify="center"
             alignItems="center"
           >
-            <Box component="fieldset" mb={3} borderColor="transparent">
-              <Typography component="legend">Controlled</Typography>
-
-              <Rating
-                name="simple-controlled"
-                value={this.state.calificacion}
-                onChange={(event, newValue) => {
-				  /* istanbul ignore next */
-                  this.setState({ calificacion: newValue });
-                }}
-              ></Rating>
-            </Box>
+		  <Box component="fieldset" mb={3} borderColor="transparent">
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
+      </Box>
           </Grid>
 		  <Divider />
 		  <br></br>
@@ -79,6 +80,10 @@ class producto extends React.Component {
             justify="center"
             alignItems="center"
           >
+		  	<Button>
+			  Enviar comentarios
+			</Button>
+			<br />
             <Button
               variant="contained"
               color="primary"
@@ -94,7 +99,6 @@ class producto extends React.Component {
         <br></br>
       </div>
     );
-  }
 }
 
-export default producto;
+export default Producto;
