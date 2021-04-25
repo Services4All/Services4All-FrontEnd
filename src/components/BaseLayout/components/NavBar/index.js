@@ -19,6 +19,9 @@ import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ChatIcon from '@material-ui/icons/Chat';
 import { useHistory } from "react-router-dom";
+import InputIcon from '@material-ui/icons/Input';
+import DvrIcon from '@material-ui/icons/Dvr';
+import swal from 'sweetalert'
 
 
 // Internals
@@ -73,11 +76,36 @@ const useStyles = makeStyles((theme) => ({
 
 
 function Navbar() {
+    var [isRegister, setIsRegister] = React.useState(localStorage.getItem('registrado'));
 	let history = useHistory();
 	  /* istanbul ignore next */
   function handleClickRedirect () {
     history.push("/producto");
   };
+  
+  function logout (){
+	  //Hacer llamado al API para el deslogueo
+	  setIsRegister(false);
+	  localStorage.clear();
+	  localStorage.removeItem("email");
+	  localStorage.removeItem("password");
+	  swal("Gracias por tu visita", "", "success")
+	  
+  }
+  
+  function makeRegistro (){
+	  history.push("/Register");
+  }
+  
+  function toComprador (){
+	  if(!localStorage.getItem("registrado")){
+		  history.push("/login");
+		  swal("Inicia sesión para poder disfrutar", "", "success")
+	  }else{
+		  history.push("/comprador");
+	  }
+  }
+  
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -142,12 +170,22 @@ function Navbar() {
             </ListItemIcon>
             <ListItemText primary="Deja tu opinion" />
           </ListItem>
-          <ListItem alignItems="center" button >
+		  {!isRegister &&
+          <ListItem alignItems="center" button onClick={makeRegistro}>
             <ListItemIcon>
-              <ExitToAppIcon />
+              <DvrIcon />
             </ListItemIcon>
             <ListItemText primary="Registrate" />
           </ListItem>
+		  }
+		  {isRegister &&
+          <ListItem alignItems="center" button onClick={logout}>
+            <ListItemIcon>
+              <InputIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log out" />
+          </ListItem>
+		  }
         </div>
       </List>
     </div>
@@ -185,6 +223,7 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
+			{!isRegister &&
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
@@ -192,8 +231,10 @@ function Navbar() {
               >
                 Login
               </NavLink>
+			}
             </li>
             <li>
+			{!isRegister &&
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
@@ -201,14 +242,17 @@ function Navbar() {
               >
                 Sign up
               </NavLink>
+			}
             </li>
           </ul>
         </div>
+		{isRegister &&
         <div className="shopping-cart">
           <NavLink to="/comprador">
             <Icon medium>shopping_cart</Icon>
           </NavLink>
         </div>
+		}
       </nav>
     </React.Fragment>
   );

@@ -39,8 +39,7 @@ export default function SignUp() {
   const [password, setPassword] = React.useState(null);
   
   function makeLogin(){
-	  //Aquí se va a validar con el Back-End si el usuario ya se encuentra registrado
-	  console.log("sdasdasdsapdkasoñdkñsaldkñasldksñaldkñas");
+	  //Aquí se va a validar con el Back-End si el usuario ya se encuentra registrado.
 	  if(email!=null && password!=null){
 		  localStorage.setItem('email', email);
 		  localStorage.setItem('password', password);
