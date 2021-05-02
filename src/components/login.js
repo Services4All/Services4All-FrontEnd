@@ -34,8 +34,38 @@ const useStyles = makeStyles((theme) => ({
 })); 
 
 export default function SignUp() {
+	/* istanbul ignore next */
   const classes = useStyles();
+  /* istanbul ignore next */
+  const [email, setEmail] = React.useState(null);
+  /* istanbul ignore next */
+  const [password, setPassword] = React.useState(null);
+  
+  /* istanbul ignore next */
+  function makeLogin(){
+	  //Aquí se va a validar con el Back-End si el usuario ya se encuentra registrado.
+	  if(email!=null && password!=null){
+		  localStorage.setItem('email', email);
+		  localStorage.setItem('password', password);
+		  localStorage.setItem('registrado', true);
+		  setTimeout(function() {
+				window.location.replace('/');
+			}, 1000);
+		  
+	  }
+  }
+  
+  /* istanbul ignore next */
+  function handleChangeEmail(event){
+	  setEmail(event.target.value);
+  }
+  
+  /* istanbul ignore next */
+  function handleChangePassword(event){
+	  setPassword(event.target.value);
+  }
 
+/* istanbul ignore next */
   return (
       <div >
           <NavBar />
@@ -51,7 +81,6 @@ export default function SignUp() {
                       LogIn
                   </Typography>
               </div>
-              <form className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -62,6 +91,7 @@ export default function SignUp() {
               name="email"
               autoComplete="email"
               autoFocus
+			  onChange = {handleChangeEmail}
             />
             <TextField
               variant="outlined"
@@ -73,6 +103,7 @@ export default function SignUp() {
               type="password"
               id="password"
               autoComplete="current-password"
+			  onChange = {handleChangePassword}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -84,12 +115,10 @@ export default function SignUp() {
               variant="contained"
               color="primary"
               className={classes.submit}
+			  onClick={makeLogin}
             >
               LogIn
-            </Button>
-           
-            
-          </form>
+            </Button>    
           </Container>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           <Footer/>

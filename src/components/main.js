@@ -11,7 +11,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
 import Modal from "@material-ui/core/Modal";
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -100,10 +99,12 @@ function Main() {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+	  /* istanbul ignore next */
     setOpen(true);
   };
 
   const handleClose = () => {
+	  /* istanbul ignore next */
     setOpen(false);
   };
 
