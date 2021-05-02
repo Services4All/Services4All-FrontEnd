@@ -29,9 +29,10 @@ export function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
 
   const handleClose = () => {
+	  /* istanbul ignore next */
     onClose(selectedValue);
   };
-
+  /* istanbul ignore next */
   const handleListItemClick = (value) => {
     onClose(value);
   };
@@ -64,11 +65,12 @@ SimpleDialog.propTypes = {
 export default function SimpleDialogDemo() {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
-
+  
+  /* istanbul ignore next */
   const handleClickOpen = () => {
     setOpen(true);
   };
-
+  /* istanbul ignore next */
   const handleClose = (value) => {
     setOpen(false);
     setSelectedValue(value);

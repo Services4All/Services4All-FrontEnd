@@ -99,10 +99,12 @@ function Main() {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+	  /* istanbul ignore next */
     setOpen(true);
   };
 
   const handleClose = () => {
+	  /* istanbul ignore next */
     setOpen(false);
   };
 

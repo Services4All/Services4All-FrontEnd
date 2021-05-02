@@ -34,10 +34,14 @@ const useStyles = makeStyles((theme) => ({
 })); 
 
 export default function SignUp() {
+	/* istanbul ignore next */
   const classes = useStyles();
+  /* istanbul ignore next */
   const [email, setEmail] = React.useState(null);
+  /* istanbul ignore next */
   const [password, setPassword] = React.useState(null);
   
+  /* istanbul ignore next */
   function makeLogin(){
 	  //Aquí se va a validar con el Back-End si el usuario ya se encuentra registrado.
 	  if(email!=null && password!=null){
@@ -51,14 +55,17 @@ export default function SignUp() {
 	  }
   }
   
+  /* istanbul ignore next */
   function handleChangeEmail(event){
 	  setEmail(event.target.value);
   }
   
+  /* istanbul ignore next */
   function handleChangePassword(event){
 	  setPassword(event.target.value);
   }
 
+/* istanbul ignore next */
   return (
       <div >
           <NavBar />

@@ -81,7 +81,7 @@ function Navbar() {
   function handleClickRedirect () {
     history.push("/producto");
   };
-  
+  /* istanbul ignore next */
   function logout (){
 	  //Hacer llamado al API para el deslogueo
 	  setIsRegister(false);
@@ -91,8 +91,9 @@ function Navbar() {
 	  swal("Gracias por tu visita", "", "success")
 	  
   }
-  
+  /* istanbul ignore next */
   function makeRegistro (){
+	  /* istanbul ignore next */
 	  history.push("/Register");
   }
   
@@ -102,6 +103,7 @@ function Navbar() {
     bottom: false,
     right: false,
   });
+  /* istanbul ignore next */
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&

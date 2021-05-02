@@ -67,6 +67,7 @@ function Producto () {
           name="simple-controlled"
           value={value}
           onChange={(event, newValue) => {
+			  /* istanbul ignore next */
             setValue(newValue);
           }}
         />
