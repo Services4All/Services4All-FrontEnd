@@ -91,6 +91,15 @@ function Navbar() {
 	  swal("Gracias por tu visita", "", "success")
 	  
   }
+  
+  function ChangeToPrincipal() {
+	  if(state.left && isRegister){
+		  history.push("/principal");
+	  }else {
+		  swal("Oops!","Debes iniciar sesión para acceder a tus datos", "warning");
+	  }	  
+  }
+  
   /* istanbul ignore next */
   function makeRegistro (){
 	  /* istanbul ignore next */
@@ -125,7 +134,7 @@ function Navbar() {
     >
       <List>
         <ListItem button>
-          <ListItemAvatar>
+          <ListItemAvatar onClick={ChangeToPrincipal} button>
             <Avatar />
           </ListItemAvatar>
           <ListItemText

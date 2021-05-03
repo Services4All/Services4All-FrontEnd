@@ -1,0 +1,33 @@
+import React from 'react';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import PeopleIcon from '@material-ui/icons/People';
+
+
+function ListItems(){
+	function ChangeToMain(){
+		setTimeout(function() {
+				window.location.replace('/');
+			}, 1000);
+	}
+	return (
+		<div>
+		<ListItem onClick={ChangeToMain} button>
+		  <ListItemIcon>
+			<DashboardIcon />
+		  </ListItemIcon>
+		  <ListItemText primary="Inicio" />
+		</ListItem>
+		<ListItem button>
+		  <ListItemIcon>
+			<PeopleIcon />
+		  </ListItemIcon>
+		  <ListItemText primary="Información" />
+		</ListItem>
+	  </div>
+	);
+}
+
+export default ListItems;

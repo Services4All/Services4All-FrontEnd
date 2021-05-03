@@ -3,10 +3,8 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,10 +12,11 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ListItems from './listItems';
+import Chart from './Chart'
 
 const drawerWidth = 240;
 
@@ -41,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+	background : '#2E3B55',
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -100,9 +100,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Principal() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -126,7 +128,7 @@ function Principal() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            Bienvenido {localStorage.getItem("email")}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -148,6 +150,7 @@ function Principal() {
           </IconButton>
         </div>
         <Divider />
+		<ListItems />
         <Divider />
       </Drawer>
       <main className={classes.content}>
@@ -157,14 +160,17 @@ function Principal() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
+				<Chart />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
+				{/* Aquí se debe colocar la información del usuario desde el backend. Además, de permitirle modificar sus datos */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
               </Paper>
             </Grid>
             {/* Recent Orders */}
+				{/* Aquí se deben colocar los últimos servicios solicitados, si es comprador, y los últimos servicios publicados si es vendedor. Se necesita el back */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
               </Paper>
