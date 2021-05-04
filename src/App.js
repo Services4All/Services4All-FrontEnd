@@ -12,16 +12,18 @@ import servicios from './components/servicios';
 import register from './components/register';
 import producto from './components/producto';
 import Principal from './components/principal/index'
+import Informacion from './components/principal/Informacion'
 
 function App() {
   return (
 	  <div>
 		  <BrowserRouter>
 			 <Switch>
-			 	<Route exact path={["/Register","/principal"]}>
+			 	<Route exact path={["/Register","/principal","/principal/informacion"]}>
 					<WhiteLayout>
 						<Route exact path="/Register" component={register} />
-						<Route exact path="/principal" component={Principal} />
+						<Route exact path="/principal" component={Principal} />						
+						<Route exact path="/principal/informacion" component={Informacion} />
 					</WhiteLayout>
 				</Route>
 				<Route>

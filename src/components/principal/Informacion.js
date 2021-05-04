@@ -8,19 +8,23 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import ListItems from "./listItems";
-import Chart from "./Chart";
-import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Button from '@material-ui/core/Button';
-import EnhancedTable from './EnhancedTable'
+import seller from "./images/seller.png";
+import buyer from "./images/buyer.png";
+import Fab from "@material-ui/core/Fab";
+import NavigationIcon from "@material-ui/icons/Navigation";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import LineStyleIcon from "@material-ui/icons/LineStyle";
+import { useHistory } from "react-router-dom";
+
+import "./index.css";
 
 const drawerWidth = 240;
 
@@ -108,12 +112,15 @@ const useStyles = makeStyles((theme) => ({
       width: "25ch",
     },
   },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
 }));
 
-function Principal() {
+function Informacion() {
   const classes = useStyles();
+  let history = useHistory();
   const [open, setOpen] = React.useState(true);
-  const [checkedNombre, setCheckedNombre] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -121,12 +128,22 @@ function Principal() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const toggleCheckedNombre = () => {
-    setCheckedNombre((prev) => !prev);
-  };
-
+  function changeToDashboard() {
+    history.push("/principal");
+  }
+  
+  function changeToCar() {
+	  history.push("/comprador");
+  }
+  
+  function changeToOpinion() {
+	  history.push("/producto");
+  }
+  
+  function changeToVendedor() {
+	  history.push("/Vendedor");
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -154,13 +171,8 @@ function Principal() {
             noWrap
             className={classes.title}
           >
-            Bienvenido {localStorage.getItem("email")}
+            Acerca de nuestros servicios
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -177,66 +189,123 @@ function Principal() {
         </div>
         <Divider />
         <ListItems />
+        <ListItem onClick={changeToDashboard} button>
+          <ListItemIcon>
+            <LineStyleIcon />
+          </ListItemIcon>
+          <ListItemText primary="Volver al Dashboard" />
+        </ListItem>
         <Divider />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-		<FormControlLabel
-                      control={
-                        <Switch
-                          size="small"
-                          checked={checkedNombre}
-                          onChange={toggleCheckedNombre}
-                        />
-                      }
-                      label="Editar datos personales"
-                    />
-		  <br/>
-		  <br/>
+          <br />
+          <br />
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={8}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            {/* Aquí se debe colocar la información del usuario desde el backend. Además, de permitirle modificar sus datos */}
-            <Grid item xs={12} md={4} lg={4}>
-              <Paper className={fixedHeightPaper}>
-				  {checkedNombre===false &&
-                    <input type="text" id="lname" name="lname" placeholder="Aquí va nombre" disabled></input>
-				  }
-				  {checkedNombre===false &&
-                    <input type="text" id="lname" name="lname" placeholder="Aquí va apellido" disabled></input>
-				  }
-				  {checkedNombre===false &&
-                    <input type="text" id="lname" name="lname" placeholder="Aquí va correo" disabled></input>
-				  }
-				  {checkedNombre===true &&
-                    <input type="text" id="lname" name="lname" placeholder="Ingrese un nuevo nombre"></input>
-				  }
-				  {checkedNombre===true &&
-                    <input type="text" id="lname" name="lname" placeholder="Ingrese un nuevo apellido"></input>
-				  }
-				  {checkedNombre===true &&
-                    <input type="text" id="lname" name="lname" placeholder="Ingrese un nuevo correo"></input>
-				  }
-				  {checkedNombre===true &&
-				  <Button variant="contained" color="primary">
-				   Aplicar cambios
-</Button>
-				  }
- 
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            {/* Aquí se deben colocar los últimos servicios solicitados, si es comprador, y los últimos servicios publicados si es vendedor. Se necesita el back */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-				<EnhancedTable />
-			  </Paper>
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  color="inherit"
+                  noWrap
+                  className={classes.title}
+                >
+                  Si eres comprador
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                >
+                  <img src={seller} alt="Logo" />
+                </Grid>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={6}>
+              <Paper className={classes.paper}>
+                <Typography
+                  component="h1"
+                  variant="h4"
+                  color="inherit"
+                  noWrap
+                  className={classes.title}
+                >
+                  Puedes contratar servicios
+                </Typography>
+                <br />
+                <Fab onClick={changeToCar} variant="extended" button>
+                  <NavigationIcon className={classes.extendedIcon} />
+                  Navega
+                </Fab>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={6}>
+              <Paper className={classes.paper}>
+                <Typography
+                  component="h1"
+                  variant="h4"
+                  color="inherit"
+                  noWrap
+                  className={classes.title}
+                >
+                  ¿Mala experiencia? Reclama
+                </Typography>
+                <br></br>
+                <Fab onClick={changeToOpinion} variant="extended" button>
+                  <NavigationIcon className={classes.extendedIcon} />
+                  Navega
+                </Fab>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  color="inherit"
+                  noWrap
+                  className={classes.title}
+                >
+                  Si eres vendedor
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                >
+                  <img src={buyer} alt="Logo" />
+                </Grid>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={12}>
+              <Paper className={classes.paper}>
+                <Typography
+                  component="h1"
+                  variant="h4"
+                  color="inherit"
+                  noWrap
+                  className={classes.title}
+                >
+                  Ofrece tus servicios
+                </Typography>
+                <br></br>
+                <Fab onClick={changeToVendedor} variant="extended" button>
+                  <NavigationIcon className={classes.extendedIcon} />
+                  Navega
+                </Fab>
+              </Paper>
             </Grid>
           </Grid>
         </Container>
@@ -245,4 +314,4 @@ function Principal() {
   );
 }
 
-export default Principal;
+export default Informacion;

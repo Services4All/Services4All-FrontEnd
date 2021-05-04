@@ -12,6 +12,12 @@ function ListItems(){
 				window.location.replace('/');
 			}, 1000);
 	}
+	
+	function ChangeToInformacion(){
+		setTimeout(function() {
+				window.location.replace('/principal/informacion');
+			}, 0);
+	}
 	return (
 		<div>
 		<ListItem onClick={ChangeToMain} button>
@@ -20,7 +26,7 @@ function ListItems(){
 		  </ListItemIcon>
 		  <ListItemText primary="Inicio" />
 		</ListItem>
-		<ListItem button>
+		<ListItem onClick={ChangeToInformacion} button>
 		  <ListItemIcon>
 			<PeopleIcon />
 		  </ListItemIcon>
