@@ -116,14 +116,17 @@ function Principal() {
   const [checkedNombre, setCheckedNombre] = React.useState(false);
 
   const handleDrawerOpen = () => {
+	  	/* istanbul ignore next */
     setOpen(true);
   };
   const handleDrawerClose = () => {
+	  	/* istanbul ignore next */
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const toggleCheckedNombre = () => {
+	  	/* istanbul ignore next */
     setCheckedNombre((prev) => !prev);
   };
 

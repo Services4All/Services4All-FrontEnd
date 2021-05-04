@@ -123,25 +123,31 @@ function Informacion() {
   const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
+	/* istanbul ignore next */
     setOpen(true);
   };
   const handleDrawerClose = () => {
+	/* istanbul ignore next */
     setOpen(false);
   };
 
   function changeToDashboard() {
+	/* istanbul ignore next */
     history.push("/principal");
   }
   
   function changeToCar() {
+	/* istanbul ignore next */
 	  history.push("/comprador");
   }
   
   function changeToOpinion() {
+	/* istanbul ignore next */
 	  history.push("/producto");
   }
   
   function changeToVendedor() {
+	/* istanbul ignore next */
 	  history.push("/Vendedor");
   }
   return (

@@ -92,6 +92,7 @@ function Navbar() {
 	  
   }
   
+  /* istanbul ignore next */
   function ChangeToPrincipal() {
 	  if(state.left && isRegister){
 		  history.push("/principal");
