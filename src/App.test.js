@@ -3,6 +3,8 @@ import App from './App';
 import Servicios from './components/servicios';
 import Main from "./components/main";
 import Vendedor from "./components/vendedor";
+import Principal from './components/principal/index.js'
+import Informacion from './components/principal/Informacion.js'
 
 test('renders Principal', () => {
   render(<App />);
@@ -10,7 +12,71 @@ test('renders Principal', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Servicios prestados el último año/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Editar datos personales/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Nombre/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Descripción/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Categoría/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders EnhancedTable inside index of principal', () => {
+  render(<Principal />);
+  const linkElement = screen.getByText(/Fecha de creación/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Informacion', () => {
+  render(<Informacion />);
+  const linkElement = screen.getByText(/Si eres comprador/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Informacion', () => {
+  render(<Informacion />);
+  const linkElement = screen.getByText(/Puedes contratar servicios/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Informacion', () => {
+  render(<Informacion />);
+  const linkElement = screen.getByText(/Mala experiencia/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Informacion', () => {
+  render(<Informacion />);
+  const linkElement = screen.getByText(/Si eres vendedor/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Informacion', () => {
+  render(<Informacion />);
+  const linkElement = screen.getByText(/Ofrece tus servicios/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 it('Test Servicios 1', () => {
 
