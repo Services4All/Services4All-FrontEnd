@@ -8,6 +8,7 @@ import Informacion from './components/principal/Informacion.js'
 import Carpinteria from './components/carpinteria.js';
 import Plomeria from './components/plomeria.js';
 import Mecanica from './components/mecanica.js';
+import Consultoria from './components/consultoria.js';
 import Register from './components/register.js'
 import About from './components/about.js'
 import Cerrajeria from './components/cerrajeria.js'
@@ -121,6 +122,12 @@ test('renders Plomería', () => {
 test('renders Mecanica', () => {
   render(<Mecanica />);
   const linkElement = screen.getByText(/Servicio de Mecánica Daytona Barrio Mirandela/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Consultoria', () => {
+  render(<Consultoria />);
+  const linkElement = screen.getByText(/Servicio de Consultoria Medica Daytona Barrio Mirandela/i);
   expect(linkElement).toBeInTheDocument();
 });
 
