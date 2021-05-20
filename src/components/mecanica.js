@@ -16,19 +16,18 @@ const useStyles = makeStyles((theme) => ({
   sampleContent: {
     flexGrow: 1,
   },
-  sampleMedia: {
-    paddingTop: "56.25%", // 16:9
-  },
-  sampleGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  }, 
   view: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
   },
-  
+  sampleGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  sampleMedia: {
+    paddingTop: "56.25%", // 16:9
+  }, 
   
 }));
 
