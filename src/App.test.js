@@ -6,6 +6,7 @@ import Vendedor from "./components/vendedor";
 import Principal from './components/principal/index.js'
 import Informacion from './components/principal/Informacion.js'
 import Carpinteria from './components/carpinteria.js';
+import Plomeria from './components/plomeria.js';
 import Register from './components/register.js'
 import About from './components/about.js'
 import Cerrajeria from './components/cerrajeria.js'
@@ -107,6 +108,12 @@ test('renders Informacion', () => {
 test('renders Carpinteria', () => {
   render(<Carpinteria />);
   const linkElement = screen.getByText(/Servicio de Carpintería Daytona Barrio Mirandela/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Plomería', () => {
+  render(<Plomeria />);
+  const linkElement = screen.getByText(/Servicio de Plomería Daytona Barrio Mirandela/i);
   expect(linkElement).toBeInTheDocument();
 });
 
