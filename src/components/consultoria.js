@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
 import { useHistory } from "react-router-dom";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,15 +36,15 @@ function Setup(){
 	let history = useHistory();
 	const cards = [1, 2, 3, 4, 5, 6];
 	const classes = useStyles();
-	const [namesArray] = useState([
-		"Servicio de Consultoria Medica Osorio Barrio Alamos",
-		"Servicio de Consultoria Medica Barrio Ciudadela Colsubsidio",
+	const [nombresarrayCard] = useState([
 		"Servicio de Consultoria Medica Daytona Barrio Mirandela",
 		"Servicio de Consultoria Medica Colina",
 		"Servicio de Consultoria Medica Gómez Barrio Villaluz",
 		"Servicio de Consultoria Medica Barrio Quirigua",
+		"Servicio de Consultoria Medica Osorio Barrio Alamos",
+		"Servicio de Consultoria Medica Barrio Ciudadela Colsubsidio",		
 	]);
-	const [arreglo] = useState([
+	const [arrayCard] = useState([
 		"https://previews.123rf.com/images/michaeljung/michaeljung1305/michaeljung130500034/19410746-consultor%C3%ADa-m%C3%A9dica-m%C3%A9dico-paciente-mayor-en-oficina.jpg",
 		"https://diagnosticoencasa.com/wp-content/uploads/2017/06/consulta-medica-online.jpg",
 		"https://us.123rf.com/450wm/visivasnc/visivasnc1707/visivasnc170700004/81411251-los-m%C3%A9dicos-utilizan-la-tableta-digital-concepto-de-consultor%C3%ADa-m%C3%A9dica-.jpg?ver=6",
@@ -65,12 +66,12 @@ function Setup(){
               <Card className={classes.view}>
                 <CardMedia
                   className={classes.sampleMedia}	
-                  image={arreglo[card - 1]}
-                  title="Titulo"
+                  image={arrayCard[card - 1]}
+                  title="Titulo C"
                 />
                 <CardContent className={classes.sampleContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    {namesArray[card - 1]}
+                    {nombresarrayCard[card - 1]}
                   </Typography>
                 </CardContent>
                 <CardActions>
