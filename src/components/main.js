@@ -118,26 +118,31 @@ function openCategory1(){
 	history.push("/carpinteria");
 	
 }
+/* istanbul ignore next */
 function openCategory2(){
 	
 	history.push("/plomeria");
 	
 }
+/* istanbul ignore next */
 function openCategory3(){
 	
 	history.push("/mecanica");
 	
 }
+/* istanbul ignore next */
 function openCategory4(){
 	
 	history.push("/consultoria");
 	
 }
+/* istanbul ignore next */
 function openCategory5(){
 	
 	history.push("/cerrajeria");
 	
 }
+/* istanbul ignore next */
 function openCategory6(){
 	
 	history.push("/zapateria");

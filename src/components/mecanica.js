@@ -13,21 +13,21 @@ import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
+  sampleContent: {
+    flexGrow: 1,
+  },
   view: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
   },
-  sampleMedia: {
-    paddingTop: "56.25%", // 16:9
-  }, 
   sampleGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
   },
-  sampleContent: {
-    flexGrow: 1,
-  },
+  sampleMedia: {
+    paddingTop: "56.25%", // 16:9
+  }, 
   
 }));
 
@@ -43,7 +43,7 @@ function Setup(){
 		"Servicio de Mecánica Gómez Barrio Villaluz",
 		"Servicio de Mecánica Barrio Quirigua",
 	]);
-	const [imgArray] = useState([
+	const [arreglo] = useState([
 		"https://s3.amazonaws.com/imagenes.conexioncapital.co/wp-content/uploads/2021/05/11125226/Talleres.jpg",
 		"https://cdatecnosabana.com/wp-content/uploads/revision-tecnomecanica-bogota-colombia-tecnosabana.jpg",
 		"https://www.lavanguardia.com/files/article_main_microformat/uploads/2020/05/11/5f16051d88e3e.jpeg",
@@ -65,7 +65,7 @@ function Setup(){
               <Card className={classes.view}>
                 <CardMedia
                   className={classes.sampleMedia}	
-                  image={imgArray[card - 1]}
+                  image={arreglo[card - 1]}
                   title="Titulo"
                 />
                 <CardContent className={classes.sampleContent}>
@@ -75,7 +75,7 @@ function Setup(){
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" onClick={handleClick}>
-                    Opina sobre el servicio
+                    Opina sobre este servicio
                   </Button>
                 </CardActions>
               </Card>
