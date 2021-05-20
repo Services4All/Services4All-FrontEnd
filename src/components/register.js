@@ -12,6 +12,11 @@ import Container from '@material-ui/core/Container';
 import NavBar from './navBar/NavBar';
 import Footer from './elements/Footer';
 import Alert from '@material-ui/lab/Alert';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -44,6 +49,7 @@ export default function SignUp() {
 	const [ciudad, setCiudad] = React.useState(null);
 	const [registroExitoso, setRegistroExitoso] = React.useState(false);
 	const [password, setPassword] = React.useState(null);
+	const [age, setAge] = React.useState('');
 	
 	function registrarUsuario(){
 		//Aquí se debe llamar al API para hacer la creación del nuevo usuario
@@ -56,6 +62,10 @@ export default function SignUp() {
 			}, 1000);
 		}
 	}
+	
+	const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 	
 	function handleChangeFirstName(event){
 		/* istanbul ignore next */
@@ -189,6 +199,24 @@ export default function SignUp() {
 									onChange={handleChangePassword}
                                 />
                             </Grid>
+							<Grid 
+							container
+							  direction="column"
+							  justify="center"
+							  alignItems="stretch"
+							  item xs={12}>
+							<InputLabel id="demo-simple-select-autowidth-label">Tipo de usuario</InputLabel>
+								<Select
+								  labelId="demo-simple-select-autowidth-label"
+								  id="demo-simple-select-autowidth"
+								  value={age}
+								  onChange={handleChange}
+								  autoWidth
+								>
+								  <MenuItem value={10}>Comprador</MenuItem>
+								  <MenuItem value={20}>Vendedor</MenuItem>
+							</Select>
+							</Grid>
 
                         </Grid>
                         <Button
