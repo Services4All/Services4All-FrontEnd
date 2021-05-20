@@ -112,6 +112,8 @@ function Main() {
 	  /* istanbul ignore next */
     setOpen(false);
   };
+  
+/* istanbul ignore next */
 function openCategory(){
 	
 	history.push("/carpinteria");
