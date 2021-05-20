@@ -11,6 +11,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
 import Modal from "@material-ui/core/Modal";
+import { useHistory } from "react-router-dom";
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +21,9 @@ import Modal from "@material-ui/core/Modal";
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
+  },
+  button: {
+    margin: theme.spacing(1),
   },
   heroContent: {
     backgroundColor: "white",
@@ -70,6 +74,7 @@ function getModalStyle() {
 
 const cards = [1, 2, 3, 4, 5, 6];
 function Main() {
+  let history = useHistory();
   const classes = useStyles();
   const [cardName] = useState([
     "Carpintería",
@@ -107,7 +112,11 @@ function Main() {
 	  /* istanbul ignore next */
     setOpen(false);
   };
-
+function openCategory(){
+	
+	history.push("/carpinteria");
+	
+}
   return (
     <React.Fragment>
       <CssBaseline />
@@ -123,6 +132,20 @@ function Main() {
             Categorías de servicios
           </Typography>
         </Container>
+		<Grid
+		  container
+		  direction="row"
+		  justify="center"
+		  alignItems="center"
+		  
+		>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Carpintería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Plomería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Mecánica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Consultoría Médica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Cerrajería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory}>Zapatería</Button>
+		</Grid>
       </div>
       <Container className={useStyles().cardGrid} maxWidth="md">
         <Grid container spacing={4}>

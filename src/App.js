@@ -13,17 +13,19 @@ import register from './components/register';
 import producto from './components/producto';
 import Principal from './components/principal/index'
 import Informacion from './components/principal/Informacion'
+import carpinteria from './components/carpinteria';
 
 function App() {
   return (
 	  <div>
 		  <BrowserRouter>
 			 <Switch>
-			 	<Route exact path={["/Register","/principal","/principal/informacion"]}>
+			 	<Route exact path={["/Register","/principal","/principal/informacion","/carpinteria"]}>
 					<WhiteLayout>
 						<Route exact path="/Register" component={register} />
 						<Route exact path="/principal" component={Principal} />						
 						<Route exact path="/principal/informacion" component={Informacion} />
+						<Route exact path="/carpinteria" component={carpinteria} />
 					</WhiteLayout>
 				</Route>
 				<Route>

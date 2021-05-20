@@ -5,6 +5,7 @@ import Main from "./components/main";
 import Vendedor from "./components/vendedor";
 import Principal from './components/principal/index.js'
 import Informacion from './components/principal/Informacion.js'
+import Carpinteria from './components/carpinteria.js';
 
 test('renders Principal', () => {
   render(<App />);
@@ -78,6 +79,12 @@ test('renders Informacion', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test('renders Carpinteria', () => {
+  render(<Carpinteria />);
+  const linkElement = screen.getByText(/Servicio de Carpintería Daytona Barrio Mirandela/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
 it('Test Servicios 1', () => {
 
 
@@ -119,14 +126,5 @@ it('Test Main 1', () => {
 
 })
 
-it('Test Main 2', () => {
-
-
-   const { container, getByText } = render(<Main />);
-
-   expect(getByText(/Carpintería/i).textContent)
-
-
-})
 
 
