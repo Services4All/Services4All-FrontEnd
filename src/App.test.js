@@ -5,6 +5,22 @@ import Main from "./components/main";
 import Vendedor from "./components/vendedor";
 import Principal from './components/principal/index.js'
 import Informacion from './components/principal/Informacion.js'
+import Register from './components/register.js'
+import About from './components/about.js'
+
+
+
+test('renders About', () => {
+  render(<About />);
+  const linkElement = screen.getByText(/Encontraras facilidades de busqueda como servicios directos, perfiles de usuarios y configuracion de tu cuenta./i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Register', () => {
+  render(<Register />);
+  const linkElement = screen.getByText(/Tipo de usuario/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 test('renders Principal', () => {
   render(<App />);
