@@ -7,6 +7,7 @@ import Principal from './components/principal/index.js'
 import Informacion from './components/principal/Informacion.js'
 import Carpinteria from './components/carpinteria.js';
 import Plomeria from './components/plomeria.js';
+import Mecanica from './components/mecanica.js';
 
 test('renders Principal', () => {
   render(<App />);
@@ -89,6 +90,12 @@ test('renders Carpinteria', () => {
 test('renders Plomería', () => {
   render(<Plomeria />);
   const linkElement = screen.getByText(/Servicio de Plomería Daytona Barrio Mirandela/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Mecanica', () => {
+  render(<Mecanica />);
+  const linkElement = screen.getByText(/Servicio de Mecánica Daytona Barrio Mirandela/i);
   expect(linkElement).toBeInTheDocument();
 });
 

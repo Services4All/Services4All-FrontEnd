@@ -112,9 +112,34 @@ function Main() {
 	  /* istanbul ignore next */
     setOpen(false);
   };
-function openCategory(){
+function openCategory1(){
 	
 	history.push("/carpinteria");
+	
+}
+function openCategory2(){
+	
+	history.push("/plomeria");
+	
+}
+function openCategory3(){
+	
+	history.push("/mecanica");
+	
+}
+function openCategory4(){
+	
+	history.push("/consultoria");
+	
+}
+function openCategory5(){
+	
+	history.push("/cerrajeria");
+	
+}
+function openCategory6(){
+	
+	history.push("/zapateria");
 	
 }
   return (
@@ -139,12 +164,12 @@ function openCategory(){
 		  alignItems="center"
 		  
 		>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Carpintería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Plomería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Mecánica</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Consultoría Médica</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Cerrajería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Zapatería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory1}>Carpintería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory2}>Plomería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory3}>Mecánica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory4}>Consultoría Médica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory5}>Cerrajería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory6}>Zapatería</Button>
 		</Grid>
       </div>
       <Container className={useStyles().cardGrid} maxWidth="md">
