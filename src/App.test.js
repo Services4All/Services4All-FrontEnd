@@ -7,6 +7,15 @@ import Principal from './components/principal/index.js'
 import Informacion from './components/principal/Informacion.js'
 import Register from './components/register.js'
 import About from './components/about.js'
+import Cerrajeria from './components/cerrajeria.js'
+
+
+
+test('renders Cerrajeria', () => {
+  render(<Cerrajeria />);
+  const linkElement = screen.getByText(/Servicio de Cerrajería 24 horas/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 
 
