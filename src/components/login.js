@@ -44,17 +44,16 @@ export default function SignUp() {
   /* istanbul ignore next */
   function makeLogin(){
 	  //Aquí se va a validar con el Back-End si el usuario ya se encuentra registrado.
-	  if(email!=null && password!=null){
 		  localStorage.setItem('email', email);
 		  localStorage.setItem('password', password);
 		  localStorage.setItem('registrado', true);
 		  setTimeout(function() {
 				window.location.replace('/');
 			}, 1000);
+			
 		  
 	  }
-  }
-  
+	  
   /* istanbul ignore next */
   function handleChangeEmail(event){
 	  setEmail(event.target.value);
