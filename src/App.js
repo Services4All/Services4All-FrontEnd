@@ -15,6 +15,7 @@ import Principal from './components/principal/index'
 import Informacion from './components/principal/Informacion'
 import carpinteria from './components/carpinteria';
 import plomeria from './components/plomeria';
+import mecanica from './components/mecanica';
 import cerrajeria from './components/cerrajeria'
 
 function App() {
@@ -22,13 +23,14 @@ function App() {
 	  <div>
 		  <BrowserRouter>
 			 <Switch>
-			 	<Route exact path={["/Register","/principal","/principal/informacion","/carpinteria","/cerrajeria","/plomeria"]}>
+			 	<Route exact path={["/Register","/principal","/principal/informacion","/carpinteria","/cerrajeria","/plomeria","/mecanica"]}>
 					<WhiteLayout>
 						<Route exact path="/Register" component={register} />
 						<Route exact path="/principal" component={Principal} />						
 						<Route exact path="/principal/informacion" component={Informacion} />
 						<Route exact path="/carpinteria" component={carpinteria} />
 						<Route exact path="/plomeria" component={plomeria} />
+						<Route exact path="/mecanica" component={mecanica} />
 						<Route exact path="/cerrajeria" component={cerrajeria} />
 					</WhiteLayout>
 				</Route>

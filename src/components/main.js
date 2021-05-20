@@ -112,11 +112,38 @@ function Main() {
 	  /* istanbul ignore next */
     setOpen(false);
   };
-
 /* istanbul ignore next */
-function openCategory(){
-	
+function openCategory1(){
 	history.push("/carpinteria");
+}
+/* istanbul ignore next */
+function openCategory2(){
+	
+	history.push("/plomeria");
+	
+}
+/* istanbul ignore next */
+function openCategory3(){
+	
+	history.push("/mecanica");
+	
+}
+/* istanbul ignore next */
+function openCategory4(){
+	
+	history.push("/consultoria");
+	
+}
+/* istanbul ignore next */
+function openCategory5(){
+	
+	history.push("/cerrajeria");
+	
+}
+/* istanbul ignore next */
+function openCategory6(){
+	
+	history.push("/zapateria");
 	
 }
   return (
@@ -141,12 +168,12 @@ function openCategory(){
 		  alignItems="center"
 		  
 		>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Carpintería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Plomería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Mecánica</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Consultoría Médica</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Cerrajería</Button>
-		<Button variant="contained" className={classes.button} onClick={openCategory}>Zapatería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory1}>Carpintería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory2}>Plomería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory3}>Mecánica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory4}>Consultoría Médica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory5}>Cerrajería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory6}>Zapatería</Button>
 		</Grid>
       </div>
       <Container className={useStyles().cardGrid} maxWidth="md">
