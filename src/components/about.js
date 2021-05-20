@@ -7,6 +7,7 @@ import './about.css';
 
 export default class about extends React.Component {
   render() {
+	/* istanbul ignore next */
     return(
       <div className="about">
         <div>
