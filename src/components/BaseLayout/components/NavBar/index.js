@@ -124,6 +124,7 @@ function Navbar() {
     }
     setState({ ...state, [anchor]: open });
   };
+  /* istanbul ignore next */
   const list = (anchor) => (
     <div
       className={clsx(useStyles.list, {
@@ -192,7 +193,8 @@ function Navbar() {
       </List>
     </div>
   );
-
+  
+  /* istanbul ignore next */
   return (
     <React.Fragment>
       <CssBaseline />
