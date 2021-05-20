@@ -22,7 +22,9 @@ export default class BaseLayout extends Component {
   }
 
   incrementIndex = () => {
+	/* istanbul ignore next */
     const newIndex = this.state.index + 1;
+	/* istanbul ignore next */
     this.setState({ index: newIndex })
   }
 

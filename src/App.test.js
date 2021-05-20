@@ -9,6 +9,31 @@ import Carpinteria from './components/carpinteria.js';
 import Plomeria from './components/plomeria.js';
 import Mecanica from './components/mecanica.js';
 import Consultoria from './components/consultoria.js';
+import Register from './components/register.js'
+import About from './components/about.js'
+import Cerrajeria from './components/cerrajeria.js'
+
+
+
+test('renders Cerrajeria', () => {
+  render(<Cerrajeria />);
+  const linkElement = screen.getByText(/Servicio de Cerrajería 24 horas/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+
+test('renders About', () => {
+  render(<About />);
+  const linkElement = screen.getByText(/Encontraras facilidades de busqueda como servicios directos, perfiles de usuarios y configuracion de tu cuenta./i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('renders Register', () => {
+  render(<Register />);
+  const linkElement = screen.getByText(/Tipo de usuario/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 test('renders Principal', () => {
   render(<App />);
