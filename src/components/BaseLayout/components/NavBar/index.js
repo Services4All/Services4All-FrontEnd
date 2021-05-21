@@ -16,7 +16,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ChatIcon from '@material-ui/icons/Chat';
+import { useHistory } from "react-router-dom";
+import InputIcon from '@material-ui/icons/Input';
+import DvrIcon from '@material-ui/icons/Dvr';
+import swal from 'sweetalert'
+
 
 // Internals
 import "./index.css";
@@ -61,15 +66,54 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  photo: {
+	height: "100px",
+	width: "100px",
+  },
 }));
 
+
+
 function Navbar() {
+    var [isRegister, setIsRegister] = React.useState(localStorage.getItem('registrado'));
+	let history = useHistory();
+	  /* istanbul ignore next */
+  function handleClickRedirect () {
+    history.push("/producto");
+  };
+  /* istanbul ignore next */
+  function logout (){
+	  //Hacer llamado al API para el deslogueo
+	  setIsRegister(false);
+	  localStorage.clear();
+	  localStorage.removeItem("email");
+	  localStorage.removeItem("password");
+	  swal("Gracias por tu visita", "", "success")
+	  
+  }
+  
+  /* istanbul ignore next */
+  function ChangeToPrincipal() {
+	  if(state.left && isRegister){
+		  history.push("/principal");
+	  }else {
+		  swal("Oops!","Debes iniciar sesión para acceder a tus datos", "warning");
+	  }	  
+  }
+  
+  /* istanbul ignore next */
+  function makeRegistro (){
+	  /* istanbul ignore next */
+	  history.push("/Register");
+  }
+  
   const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+  /* istanbul ignore next */
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
@@ -91,7 +135,7 @@ function Navbar() {
     >
       <List>
         <ListItem button>
-          <ListItemAvatar>
+          <ListItemAvatar onClick={ChangeToPrincipal} button>
             <Avatar />
           </ListItemAvatar>
           <ListItemText
@@ -104,7 +148,7 @@ function Navbar() {
                   className={useStyles.inline}
                   color="textPrimary"
                 >
-                  Correo electronico
+				{localStorage.getItem('email')}
                 </Typography>
               </React.Fragment>
             }
@@ -116,42 +160,34 @@ function Navbar() {
       <Divider />
       <Divider />
       <Divider />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       <List alignItems="bottom">
         <div>
-          <ListItem alignItems="center" button>
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
+		  <ListItem alignItems="center" button>
+		  
+			<img className={useStyles.photo} src="https://i.imgur.com/QJPmuZw.png" alt="S4A"/>
           </ListItem>
+          <ListItem alignItems="center" button onClick={handleClickRedirect}>
+            <ListItemIcon>
+				<ChatIcon />
+            </ListItemIcon>
+            <ListItemText primary="Deja tu opinion" />
+          </ListItem>
+		  {!isRegister &&
+          <ListItem alignItems="center" button onClick={makeRegistro}>
+            <ListItemIcon>
+              <DvrIcon />
+            </ListItemIcon>
+            <ListItemText primary="Registrate" />
+          </ListItem>
+		  }
+		  {isRegister &&
+          <ListItem alignItems="center" button onClick={logout}>
+            <ListItemIcon>
+              <InputIcon />
+            </ListItemIcon>
+            <ListItemText primary="Log out" />
+          </ListItem>
+		  }
         </div>
       </List>
     </div>
@@ -189,6 +225,7 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
+			{!isRegister &&
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
@@ -196,23 +233,28 @@ function Navbar() {
               >
                 Login
               </NavLink>
+			}
             </li>
             <li>
+			{!isRegister &&
               <NavLink
                 activeClassName="selected"
                 className="nav-link"
-                to="/signup"
+                to="/Register"
               >
                 Sign up
               </NavLink>
+			}
             </li>
           </ul>
         </div>
+		{isRegister &&
         <div className="shopping-cart">
-          <NavLink to="/cart">
+          <NavLink to="/comprador">
             <Icon medium>shopping_cart</Icon>
           </NavLink>
         </div>
+		}
       </nav>
     </React.Fragment>
   );

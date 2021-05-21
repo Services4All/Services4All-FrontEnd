@@ -11,7 +11,7 @@ import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Footer from "./elements/Footer";
 import Modal from "@material-ui/core/Modal";
-
+import { useHistory } from "react-router-dom";
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +21,9 @@ import Modal from "@material-ui/core/Modal";
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
+  },
+  button: {
+    margin: theme.spacing(1),
   },
   heroContent: {
     backgroundColor: "white",
@@ -71,6 +74,7 @@ function getModalStyle() {
 
 const cards = [1, 2, 3, 4, 5, 6];
 function Main() {
+  let history = useHistory();
   const classes = useStyles();
   const [cardName] = useState([
     "Carpintería",
@@ -100,13 +104,50 @@ function Main() {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+	  /* istanbul ignore next */
     setOpen(true);
   };
 
   const handleClose = () => {
+	  /* istanbul ignore next */
     setOpen(false);
   };
-
+/* istanbul ignore next */
+function openCategory1(){
+	
+	history.push("/carpinteria");
+	
+}
+/* istanbul ignore next */
+function openCategory2(){
+	
+	history.push("/plomeria");
+	
+}
+/* istanbul ignore next */
+function openCategory3(){
+	
+	history.push("/mecanica");
+	
+}
+/* istanbul ignore next */
+function openCategory4(){
+	
+	history.push("/consultoria");
+	
+}
+/* istanbul ignore next */
+function openCategory5(){
+	
+	history.push("/cerrajeria");
+	
+}
+/* istanbul ignore next */
+function openCategory6(){
+	
+	history.push("/zapateria");
+	
+}
   return (
     <React.Fragment>
       <CssBaseline />
@@ -122,6 +163,20 @@ function Main() {
             Categorías de servicios
           </Typography>
         </Container>
+		<Grid
+		  container
+		  direction="row"
+		  justify="center"
+		  alignItems="center"
+		  
+		>
+		<Button variant="contained" className={classes.button} onClick={openCategory1}>Carpintería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory2}>Plomería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory3}>Mecánica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory4}>Consultoría Médica</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory5}>Cerrajería</Button>
+		<Button variant="contained" className={classes.button} onClick={openCategory6}>Zapatería</Button>
+		</Grid>
       </div>
       <Container className={useStyles().cardGrid} maxWidth="md">
         <Grid container spacing={4}>
