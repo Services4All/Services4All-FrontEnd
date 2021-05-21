@@ -2,73 +2,58 @@
 import React from "react";
 import Footer from "./elements/Footer";
 import NavBar from "./navBar/NavBar";
-import { NavLink } from "react-router-dom";
-import "./comprador.css";
+import "./vendedor.css";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
 import MaterialTable from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
+import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
-import { useHistory } from "react-router-dom";
 
-export default function Comprador() {
-  let history = useHistory();
-  const [openHandle1, setopenHandle1] = React.useState(false);
-  const [openHandle2, setopenHandle2] = React.useState(false);
-  const [openHandle3, setopenHandle3] = React.useState(false);
 
-  const handleClickopenHandle1 = () => {
-    /* istanbul ignore next */
-    setopenHandle1(true);
+export default function Vendedor() {
+  const [open1, setOpen1] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  
+  const handleClickOpen1 = () => {
+	/* istanbul ignore next */
+    setOpen1(true);
   };
-
+  
   const handleClose1 = () => {
-    /* istanbul ignore next */
-    setopenHandle1(false);
+	/* istanbul ignore next */
+    setOpen1(false);
   };
-
   /* istanbul ignore next */
-  const handleClickopenHandle2 = () => {
-    setopenHandle2(true);
+  const handleClickOpen2 = () => {
+    setOpen2(true);
   };
   /* istanbul ignore next */
   const handleClose2 = () => {
-    setopenHandle2(false);
+    setOpen2(false);
   };
-  
   /* istanbul ignore next */
-  const handleClickopenHandle3 = () => {
-    setopenHandle3(true);
+  const handleClickOpen3 = () => {
+    setOpen3(true);
   };
   /* istanbul ignore next */
   const handleClose3 = () => {
-    setopenHandle3(false);
+    setOpen3(false);
   };
-  
-  /* istanbul ignore next */
-  function handleClickRedirect () {
-    history.push("/producto");
-  };
-  
-  const [page] = React.useState(0);
-  const [rowsPerPage] = React.useState(10);
-
-
-  function createData(name, categoria, ciudad, barrio) {
-    return { name, categoria, ciudad, barrio };
-  }
 /* istanbul ignore next */
-  const attributes = [
+  const columns = [
     { id: "name", label: "Nombre Servicio", minWidth: 170 },
     { id: "categoria", label: "Categoria", minWidth: 100 },
     {
@@ -86,56 +71,77 @@ export default function Comprador() {
       format: (value) => value.toLocaleString("en-US"),
     }
   ];
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+/* istanbul ignore next */
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+/* istanbul ignore next */
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  function createData(name, categoria, ciudad, barrio) {
+    return { name, categoria, ciudad, barrio };
+  }
+
   const rows = [
     createData("Carpintería Osorio", "Carpinteria", "Bogota", "Alamos"),
     createData("Plomeria Sena", "Plomeria", "Bogota", "Ciudadela Colsubsidio"),
     createData("Mecanica Daytona", "Mecanica", "Bogota", "Mirandela"),
     createData("Consulta Medica", "Consultoria médica", "Bogota", "Colina"),
     createData("Expertos Cerrajeros", "Cerrajeria", "Bogota", "Suba Rincon"),
- ];
+    createData(
+      "Reparaciones y construcciones",
+      "Plomeria",
+      "Bogota",
+      "Villaluz"
+    ),
+    createData("Carpinteria Gomez", "Carpinteria", "Bogota", "Villaluz"),
+    createData("Carpinteria S.I.", "Carpinteria", "Bogota", "Santa Isabel"),
+    createData("DiagnostiYA", "Mecanica", "Cali", "Matamoros"),
+    createData("Zapateria Restrepo", "Zapateria", "Bogota", "Restrepo"),
+    createData("Consulta Medica", "Consultoria médica", "Bogota", "Quirigua"),
+    createData(
+      "Cerrajeria Bogota",
+      "Cerrajeria",
+      "Bogota",
+      "Villas de Gratamira"
+    ),
+  ];
+
   return (
-    <div className="comprador">
+    <div className="vendedor">
       <div>
         <NavBar />
       </div>
-      <div className="comprador-title">
-        <h1>BIENVENIDO COMPRADOR</h1>
+      <div className="vendedor-title">
+        <h1>BIENVENIDO VENDEDOR</h1>
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item>
             <ButtonGroup
               size="large"
               aria-label="large outlined primary button group"
             >
-              <Button onClick={handleClickopenHandle1}>
-                Reclama un servicio
-              </Button>
-              <Button onClick={handleClickopenHandle2}>
-                Comparte tu opinion de un servicio
-              </Button>
+              <Button onClick={handleClickOpen1}>Publica un servicio</Button>
+			  <Button onClick={handleClickOpen2}>Modifica tu servicio</Button>
+			  <Button onClick={handleClickOpen3}>Elimina tu servicio</Button>
             </ButtonGroup>
           </Grid>
         </Grid>
-      </div>
-      <div className="itemsdos">
-        <p>
-          <NavLink
-            activeClassName="selected"
-            className="nav-link-header"
-            to="/"
-          >
-            Favoritos:
-          </NavLink>
-        </p>
-		{/* Reclamar servicio */}
+        {/* Publicar servicio */}
         <Dialog
-          open={openHandle1}
+          open={open1}
           onClose={handleClose1}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Reclamar un servicio</DialogTitle>
+          <DialogTitle id="form-dialog-title">Publicar un servicio</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Para poner un reclamo por tu servicio, por favor ingresa los siguientes datos:
+              Para publicar tu servicio, por favor ingresa los siguientes datos:
             </DialogContentText>
             <TextField
               autoFocus
@@ -150,6 +156,22 @@ export default function Comprador() {
               margin="dense"
               id="name"
               label="Categoria"
+              type="string"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Ciudad"
+              type="string"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Barrio"
               type="string"
               fullWidth
             />
@@ -158,21 +180,21 @@ export default function Comprador() {
             <Button onClick={handleClose1} color="primary">
               Cancelar
             </Button>
-            <Button onClick={handleClickopenHandle3} color="primary">
-              Buscar
+            <Button onClick={handleClose1} color="primary">
+              Publicar
             </Button>
           </DialogActions>
         </Dialog>
-		{/* Comentar servicio */}
+		{/* Modificar servicio */}
         <Dialog
-          open={openHandle2}
+          open={open2}
           onClose={handleClose2}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Comentar un servicio</DialogTitle>
+          <DialogTitle id="form-dialog-title">Modificar un servicio</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Para comentar tu servicio, por favor buscalo por nombre:
+              Para modificar tu servicio, por favor buscalo por nombre:
             </DialogContentText>
             <TextField
               autoFocus
@@ -195,45 +217,58 @@ export default function Comprador() {
             <Button onClick={handleClose2} color="primary">
               Cancelar
             </Button>
-            <Button onClick={handleClickRedirect} color="primary">
+            <Button onClick={handleClose2} color="primary">
               Buscar
             </Button>
           </DialogActions>
         </Dialog>
-		{/* Llenar comentario servicio */}
+		{/* Eliminar servicio */}
         <Dialog
-          open={openHandle3}
+          open={open3}
           onClose={handleClose3}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Comentar un servicio</DialogTitle>
+          <DialogTitle id="form-dialog-title">Elimina un servicio</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Por favor cuentanos que salio mal:
+              Para eliminar tu servicio, por favor buscalo por nombre:
             </DialogContentText>
-			<TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Reclamo"
+              label="Nombre servicio"
               type="string"
-			  fullWidth
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Categoria"
+              type="string"
+              fullWidth
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose2} color="primary">
+            <Button onClick={handleClose3} color="primary">
               Cancelar
             </Button>
-            <Button onClick={handleClickopenHandle3} color="primary">
+            <Button onClick={handleClose3} color="primary">
               Buscar
             </Button>
           </DialogActions>
         </Dialog>
+      </div>
+      <div>
+        <h2>Mis Servicios:</h2>
+      </div>
+      <Paper>
         <TableContainer>
           <MaterialTable stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                {attributes.map((column) => (
+                {columns.map((column) => (
                   <TableCell
                     key={column.id}
                     align={column.align}
@@ -255,7 +290,7 @@ export default function Comprador() {
                       tabIndex={-1}
                       key={row.code}
                     >
-                      {attributes.map((column) => {
+                      {columns.map((column) => {
                         const value = row[column.id];
 						/* istanbul ignore next */
                         return (
@@ -272,10 +307,17 @@ export default function Comprador() {
             </TableBody>
           </MaterialTable>
         </TableContainer>
-      </div>
-      <div>
-        <Footer />
-      </div>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+      </Paper>
+      <Footer />
     </div>
   );
 }

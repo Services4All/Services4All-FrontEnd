@@ -1,9 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
 // Externals
-import Navbar from './components/NavBar';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Footer from '../BaseLayout/components/Footer';
 import './index.css';
 
 const classNames = [
@@ -12,32 +10,31 @@ const classNames = [
   "third-header"
 ];
 
-
-export default class BaseLayout extends Component {
+/* istanbul ignore next */
+export default class WhiteLayout extends Component {
   constructor(props) {
+	  /* istanbul ignore next */
     super(props);
     this.state = {
       index: 0,
     };
   }
-
+/* istanbul ignore next */
   incrementIndex = () => {
     const newIndex = this.state.index + 1;
     this.setState({ index: newIndex })
   }
-
+/* istanbul ignore next */
   componentDidMount = () => {
     setInterval(this.incrementIndex, 3000);
   }
-
+/* istanbul ignore next */
   render() {
     const index = this.state.index % classNames.length;
     const className = classNames[index];
     return(
       <div>
         <div className={className}>
-          <Navbar />
-          <Header />
         </div>
         <div className="content">
           {this.props.children}
