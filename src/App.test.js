@@ -16,6 +16,7 @@ test('renders Principal', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+
 test('renders EnhancedTable inside index of principal', () => {
   render(<Principal />);
   const linkElement = screen.getByText(/Servicios prestados el último año/i);
